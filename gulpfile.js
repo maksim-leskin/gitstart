@@ -208,7 +208,7 @@ export const server = () => {
 };
 
 
-const clear = () => del(path.dist.base, {
+export const clear = () => del(path.dist.base, {
   force: true,
 });
 
