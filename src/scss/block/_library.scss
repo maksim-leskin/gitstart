@@ -62,7 +62,7 @@
 
 
   &__footer {
-    @include tablet {
+    @include laptop {
       display: none;
     }
   }

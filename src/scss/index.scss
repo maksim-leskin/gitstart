@@ -1,5 +1,6 @@
 @import "normalize";
 @include normalize();
+
 @import "var";
 @import "font";
 @import "default";
@@ -8,7 +9,13 @@
 @import "block/library";
 @import "block/fields";
 @import "block/cart";
+
 @import "block/book";
+
+@import "block/add";
+@import "block/upload";
+@import "block/status";
+@import "block/star";
 
 @import "block/search";
 

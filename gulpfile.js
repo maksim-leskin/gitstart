@@ -193,7 +193,7 @@ export const server = () => {
     ui: false,
     notify: false,
     host: 'localhost',
-    // tunnel: true,
+    tunnel: true,
     server: {
       baseDir: path.dist.base,
     }
