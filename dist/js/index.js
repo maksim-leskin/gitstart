@@ -810,21 +810,6 @@ var __webpack_exports__ = {};
 !function() {
 "use strict";
 
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 // EXTERNAL MODULE: ./node_modules/navigo/lib/navigo.min.js
 var navigo_min = __webpack_require__(123);
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
@@ -910,7 +895,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   }
 }
 
-function asyncToGenerator_asyncToGenerator(fn) {
+function _asyncToGenerator(fn) {
   return function () {
     var self = this,
         args = arguments;
@@ -929,35 +914,14 @@ function asyncToGenerator_asyncToGenerator(fn) {
     });
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
-
-
-
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
 var regenerator = __webpack_require__(757);
 ;// CONCATENATED MODULE: ./src/js/modules/serviceBook.js
 
 
-var API_URI = 'https://mysterious-earth-97472.herokuapp.com/';
+var API_URI = 'http://localhost:3024/';
 var getBooks = /*#__PURE__*/function () {
-  var _ref = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(id) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(id) {
     var response;
     return regenerator.wrap(function _callee$(_context) {
       while (1) {
@@ -991,15 +955,15 @@ var getBooks = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
-var searchBooks = /*#__PURE__*/function () {
-  var _ref2 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee2(search) {
+var getLabels = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee2() {
     var response;
     return regenerator.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return fetch("".concat(API_URI, "api/books/?search=").concat(search));
+            return fetch("".concat(API_URI, "api/label/"));
 
           case 2:
             response = _context2.sent;
@@ -1022,181 +986,16 @@ var searchBooks = /*#__PURE__*/function () {
     }, _callee2);
   }));
 
-  return function searchBooks(_x2) {
+  return function getLabels() {
     return _ref2.apply(this, arguments);
   };
 }();
-var addBooks = /*#__PURE__*/function () {
-  var _ref3 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee3(data) {
-    var response;
-    return regenerator.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.next = 2;
-            return fetch("".concat(API_URI, "api/books/"), {
-              method: 'POST',
-              body: JSON.stringify(data)
-            });
-
-          case 2:
-            response = _context3.sent;
-
-            if (!response.ok) {
-              _context3.next = 5;
-              break;
-            }
-
-            return _context3.abrupt("return", response.json());
-
-          case 5:
-            throw new Error(response.statusText);
-
-          case 6:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3);
-  }));
-
-  return function addBooks(_x3) {
-    return _ref3.apply(this, arguments);
-  };
-}();
-var getLabels = /*#__PURE__*/function () {
-  var _ref4 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee4() {
-    var response;
-    return regenerator.wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-            _context4.next = 2;
-            return fetch("".concat(API_URI, "api/label/"));
-
-          case 2:
-            response = _context4.sent;
-
-            if (!response.ok) {
-              _context4.next = 5;
-              break;
-            }
-
-            return _context4.abrupt("return", response.json());
-
-          case 5:
-            throw new Error(response.statusText);
-
-          case 6:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4);
-  }));
-
-  return function getLabels() {
-    return _ref4.apply(this, arguments);
-  };
-}();
-var deleteBooks = /*#__PURE__*/function () {
-  var _ref5 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee5(id) {
-    var response;
-    return regenerator.wrap(function _callee5$(_context5) {
-      while (1) {
-        switch (_context5.prev = _context5.next) {
-          case 0:
-            _context5.next = 2;
-            return fetch("".concat(API_URI, "api/books/").concat(id), {
-              method: 'DELETE'
-            });
-
-          case 2:
-            response = _context5.sent;
-
-            if (!response.ok) {
-              _context5.next = 5;
-              break;
-            }
-
-            return _context5.abrupt("return", response.json());
-
-          case 5:
-            throw new Error(response.statusText);
-
-          case 6:
-          case "end":
-            return _context5.stop();
-        }
-      }
-    }, _callee5);
-  }));
-
-  return function deleteBooks(_x4) {
-    return _ref5.apply(this, arguments);
-  };
-}();
-var editBooks = /*#__PURE__*/(/* unused pure expression or super */ null && (function () {
-  var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee6(id, data) {
-    var response;
-    return _regeneratorRuntime.wrap(function _callee6$(_context6) {
-      while (1) {
-        switch (_context6.prev = _context6.next) {
-          case 0:
-            _context6.next = 2;
-            return fetch("".concat(API_URI, "api/books/").concat(id), {
-              method: 'PATCH',
-              body: JSON.stringify(data)
-            });
-
-          case 2:
-            response = _context6.sent;
-
-            if (!response.ok) {
-              _context6.next = 5;
-              break;
-            }
-
-            return _context6.abrupt("return", response.json());
-
-          case 5:
-            throw new Error(response.statusText);
-
-          case 6:
-          case "end":
-            return _context6.stop();
-        }
-      }
-    }, _callee6);
-  }));
-
-  return function editBooks(_x5, _x6) {
-    return _ref6.apply(this, arguments);
-  };
-}()));
 ;// CONCATENATED MODULE: ./src/js/modules/renderListBooks.js
 
 
 
 
-
-var data = {
-  books: [],
-  labels: [],
-  sortBook: function sortBook(sort) {
-    return this.books.sort(function (a, b) {
-      if (sort === 'up') return a.rating > b.rating ? 1 : -1;
-      if (sort === 'down') return a.rating < b.rating ? 1 : -1;
-    });
-  },
-  filterBook: function filterBook(value) {
-    return this.books.filter(function (book) {
-      return book.label === value;
-    });
-  }
-};
 var libraryList = document.querySelector('.library__list');
-var fieldsList = document.querySelector('.fields__list_filter');
 
 var getStars = function getStars(rating) {
   var stars = [];
@@ -1214,42 +1013,8 @@ var getStars = function getStars(rating) {
   return stars;
 };
 
-var renderList = function renderList() {
-  var books = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : data.books;
-  libraryList.textContent = '';
-  var items = books.map(function (_ref) {
-    var author = _ref.author,
-        description = _ref.description,
-        id = _ref.id,
-        image = _ref.image,
-        label = _ref.label,
-        rating = _ref.rating,
-        title = _ref.title;
-    var item = document.createElement('li');
-    item.classList.add('library__item');
-    item.innerHTML = "\n      <a href=\"/#/book?id=".concat(id, "\">\n        <article class=\"cart\">\n          <div class=\"cart__wrapper\">\n            <img src=\"").concat(API_URI).concat(image, "\" alt=\"\u041E\u0431\u043B\u043E\u0436\u043A\u0430 \u043A\u043D\u0438\u0433\u0438 ").concat(title, "\" class=\"cart__image\">\n\n            <p class=\"cart__label\">").concat(data.labels[label], "</p>\n          </div>\n\n          <div class=\"cart__content\">\n            <h3 class=\"cart__title\">").concat(title, "</h3>\n\n            <p class=\"cart__author\">").concat(author, "</p>\n\n            <p class=\"cart__description\">").concat(description.substring(0, 80), "...</p>\n\n            <div class=\"cart__rating\">\n              ").concat(getStars(rating).join(''), "\n            </div>\n          </div>\n        </article>\n      </a>\n    ");
-    return item;
-  });
-  libraryList.append.apply(libraryList, _toConsumableArray(items));
-};
-
-var renderFields = function renderFields(labels) {
-  fieldsList.textContent = '';
-
-  for (var key in labels) {
-    var item = document.createElement('li');
-    item.className = 'fields__item';
-    var button = document.createElement('button');
-    button.className = 'fields__button';
-    button.dataset.filter = key;
-    button.textContent = labels[key];
-    item.append(button);
-    fieldsList.append(item);
-  }
-};
-
 var renderListBooks = /*#__PURE__*/function () {
-  var _ref2 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
     var _yield$Promise$all, _yield$Promise$all2, books, labels;
 
     return regenerator.wrap(function _callee$(_context) {
@@ -1264,12 +1029,22 @@ var renderListBooks = /*#__PURE__*/function () {
             _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
             books = _yield$Promise$all2[0];
             labels = _yield$Promise$all2[1];
-            data.books = books;
-            data.labels = labels;
-            renderList(books);
-            renderFields(labels);
+            libraryList.textContent = '';
+            books.forEach(function (_ref2) {
+              var author = _ref2.author,
+                  description = _ref2.description,
+                  id = _ref2.id,
+                  image = _ref2.image,
+                  label = _ref2.label,
+                  rating = _ref2.rating,
+                  title = _ref2.title;
+              var item = document.createElement('li');
+              item.classList.add('library__item');
+              item.innerHTML = "\n      <a href=\"/#/book?id=".concat(id, "\">\n        <article class=\"cart\">\n          <div class=\"cart__wrapper\">\n            <img src=\"").concat(API_URI).concat(image, "\" alt=\"\u041E\u0431\u043B\u043E\u0436\u043A\u0430 \u043A\u043D\u0438\u0433\u0438 ").concat(title, "\" class=\"cart__image\">\n\n            <p class=\"cart__label\">").concat(labels[label], "</p>\n          </div>\n\n          <div class=\"cart__content\">\n            <h3 class=\"cart__title\">").concat(title, "</h3>\n\n            <p class=\"cart__author\">").concat(author, "</p>\n\n            <p class=\"cart__description\">").concat(description.substring(0, 80), "...</p>\n\n            <div class=\"cart__rating\">\n              ").concat(getStars(rating).join(''), "\n            </div>\n          </div>\n        </article>\n      </a>\n    ");
+              libraryList.append(item);
+            });
 
-          case 10:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -1278,7 +1053,7 @@ var renderListBooks = /*#__PURE__*/function () {
   }));
 
   return function renderListBooks() {
-    return _ref2.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 }();
 ;// CONCATENATED MODULE: ./src/js/modules/renderBook.js
@@ -1286,123 +1061,84 @@ var renderListBooks = /*#__PURE__*/function () {
 
 
 
-
-var container = document.querySelector('.book__container');
-var btnDelete = document.querySelector('.header__btn_delete');
-var bookLabel = document.querySelector('.footer__btn.book__label');
-btnDelete.addEventListener('click', /*#__PURE__*/asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
-  return regenerator.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return deleteBooks(btnDelete.dataset.id);
-
-        case 2:
-          router.navigate('/');
-
-        case 3:
-        case "end":
-          return _context.stop();
-      }
-    }
-  }, _callee);
-})));
-
-var renderBook_getStars = function getStars(rating) {
-  var stars = [];
-
-  for (var i = 0; i < 5; i++) {
-    if (i === 0) {
-      stars.push("<img class=\"book__rating-star\" src=\"img/star.svg\" alt=\"\u0420\u0435\u0439\u0442\u0438\u043D\u0433 ".concat(rating, " \u0438\u0437 5\">"));
-    } else if (i < rating) {
-      stars.push("<img class=\"book__rating-star\" src=\"img/star.svg\" alt=\"\">");
-    } else {
-      stars.push("<img class=\"book__rating-star\" src=\"img/star-o.svg\" alt=\"\">");
-    }
-  }
-
-  return stars;
-};
-
 var renderBook = /*#__PURE__*/function () {
-  var _ref2 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee2(id) {
-    var _yield$Promise$all, _yield$Promise$all2, books, labels, author, title, description, label, image, rating, btnLabel;
+  var _ref = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(id) {
+    var _yield$Promise$all, _yield$Promise$all2, books, labels;
 
-    return regenerator.wrap(function _callee2$(_context2) {
+    return regenerator.wrap(function _callee$(_context) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context.prev = _context.next) {
           case 0:
-            _context2.next = 2;
+            _context.next = 2;
             return Promise.all([getBooks(id), getLabels()]);
 
           case 2:
-            _yield$Promise$all = _context2.sent;
+            _yield$Promise$all = _context.sent;
             _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
             books = _yield$Promise$all2[0];
             labels = _yield$Promise$all2[1];
-            container.textContent = '';
-            author = books.author, title = books.title, description = books.description, label = books.label, image = books.image, rating = books.rating;
-            btnLabel = document.createElement('button');
-            btnLabel.className = 'book__label book__label_img';
-            btnLabel.textContent = labels[label];
-            btnLabel.dataset.label = label;
-            container.innerHTML = "\n    <div class=\"book__wrapper\">\n      <img class=\"book__image\" src=\"".concat(API_URI).concat(image, "\" alt=\"\u043E\u0431\u043B\u043E\u0436\u043A\u0430 ").concat(title, "\">\n\n        ").concat(btnLabel.outerHTML, "\n    </div>\n\n    <div class=\"book__content\">\n      <h2 class=\"book__title\">").concat(title, "</h2>\n\n      <p class=\"book__author\">").concat(author, "</p>\n      <div class=\"book__rating\">\n        ").concat(renderBook_getStars(rating).join(''), "\n      </div>\n\n      <h3 class=\"book__subtitle\">\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435</h3>\n\n      <p class=\"book__description\">").concat(description, "</p>\n    </div>\n\n  ");
-            btnDelete.dataset.id = id;
-            bookLabel.dataset.label = label;
-            bookLabel.textContent = labels[label];
 
-          case 16:
+          case 6:
           case "end":
-            return _context2.stop();
+            return _context.stop();
         }
       }
-    }, _callee2);
+    }, _callee);
   }));
 
   return function renderBook(_x) {
-    return _ref2.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 }();
 ;// CONCATENATED MODULE: ./src/js/modules/router.js
 
 
 
-
 var library = document.querySelector('.library');
-var book = document.querySelector('.book');
-var add = document.querySelector('.add');
+
+var _book = document.querySelector('.book');
+
+var _add = document.querySelector('.add');
+
 var addBtns = document.querySelectorAll('.header__btn-add, .library__add-btn');
 var backBtn = document.querySelector('.book__btn_back');
-var router = new navigo_min(location.pathname, {
+var router = new navigo_min('/', {
   hash: true
 });
 
 var closeAllPage = function closeAllPage() {
   library.classList.add('hidden');
-  book.classList.add('hidden');
-  add.classList.add('hidden');
+
+  _book.classList.add('hidden');
+
+  _add.classList.add('hidden');
 };
 
 var initRouter = function initRouter() {
-  var _router$on;
+  router.on({
+    '/': function _() {
+      closeAllPage();
+      library.classList.remove('hidden');
+      document.body.classList.remove('body_gradient');
+      renderListBooks();
+    },
+    'book': function book(_ref) {
+      var id = _ref.params.id;
+      closeAllPage();
 
-  router.on((_router$on = {}, _defineProperty(_router$on, location.pathname, function () {
-    closeAllPage();
-    library.classList.remove('hidden');
-    document.body.classList.remove('body_gradient');
-    renderListBooks();
-  }), _defineProperty(_router$on, location.pathname + 'book', function (_ref) {
-    var id = _ref.params.id;
-    closeAllPage();
-    book.classList.remove('hidden');
-    document.body.classList.add('body_gradient');
-    renderBook(id);
-  }), _defineProperty(_router$on, location.pathname + 'add', function () {
-    closeAllPage();
-    add.classList.remove('hidden');
-    document.body.classList.add('body_gradient');
-  }), _router$on)).resolve();
+      _book.classList.remove('hidden');
+
+      document.body.classList.add('body_gradient');
+      renderBook(id);
+    },
+    'add': function add() {
+      closeAllPage();
+
+      _add.classList.remove('hidden');
+
+      document.body.classList.add('body_gradient');
+    }
+  }).resolve();
   addBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       router.navigate('add');
@@ -1413,18 +1149,13 @@ var initRouter = function initRouter() {
   });
 };
 ;// CONCATENATED MODULE: ./src/js/modules/search.js
-
-
-
-
 var btnSearch = document.querySelectorAll('.header__btn_search');
 var search = document.querySelector('.search');
-var searchForm = document.querySelector('.search__form');
 
-var closeSearch = function closeSearch(_ref, flag) {
+var closeSearch = function closeSearch(_ref) {
   var target = _ref.target;
 
-  if (target.closest('.search, .header__btn_search') && !flag) {
+  if (target.closest('.search, .header__btn_search')) {
     return;
   }
 
@@ -1438,35 +1169,6 @@ btnSearch.forEach(function (btn) {
     document.body.addEventListener('click', closeSearch, true);
   });
 });
-searchForm.addEventListener('submit', /*#__PURE__*/function () {
-  var _ref2 = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(e) {
-    var books;
-    return regenerator.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            e.preventDefault();
-            _context.next = 3;
-            return searchBooks(searchForm.input.value);
-
-          case 3:
-            books = _context.sent;
-            renderList(books);
-            e.target.reset();
-            closeSearch(e, true);
-
-          case 7:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function (_x) {
-    return _ref2.apply(this, arguments);
-  };
-}());
 ;// CONCATENATED MODULE: ./src/js/modules/toBase64.js
 var toBase64 = function toBase64(file) {
   return new Promise(function (resolve, reject) {
@@ -1490,7 +1192,7 @@ var label = document.querySelector('.upload__label');
 var preview = document.querySelector('.upload__preview');
 var file = document.querySelector('.upload__file');
 var previewSrc = preview.src;
-file.addEventListener('change', /*#__PURE__*/asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
+file.addEventListener('change', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
   var base64;
   return regenerator.wrap(function _callee$(_context) {
     while (1) {
@@ -1523,16 +1225,11 @@ var clearPreview = function clearPreview() {
   preview.src = previewSrc;
 };
 ;// CONCATENATED MODULE: ./src/js/modules/changeFieldset.js
-
-
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = changeFieldset_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function changeFieldset_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return changeFieldset_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return changeFieldset_arrayLikeToArray(o, minLen); }
 
 function changeFieldset_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-
-
 
 
 
@@ -1542,45 +1239,17 @@ var changeFieldset_form = document.querySelector('.add__form');
 var btnBack = document.querySelector('.add__btn_back');
 var count = 0;
 
-var sendBook = /*#__PURE__*/function () {
-  var _ref = asyncToGenerator_asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
-    var formData, data, book;
-    return regenerator.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            formData = new FormData(changeFieldset_form);
-            data = Object.fromEntries(formData);
-            _context.next = 4;
-            return modules_toBase64(data.image);
+var sendBook = function sendBook() {
+  var data = true; // данные с сервера
 
-          case 4:
-            data.image = _context.sent;
-            _context.next = 7;
-            return addBooks(data);
-
-          case 7:
-            book = _context.sent;
-
-            if (book) {
-              changeFieldset_form.reset();
-              clearPreview();
-              router.navigate('/');
-              addBtn.textContent = 'Далее';
-            }
-
-          case 9:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function sendBook() {
-    return _ref.apply(this, arguments);
-  };
-}();
+  if (data) {
+    changeFieldset_form.reset();
+    clearPreview();
+    router.navigate('/');
+    count = 0;
+    addBtn.textContent = 'Далее';
+  }
+};
 
 var changeFieldset = function changeFieldset() {
   if (count === fieldsets.length - 1) {
@@ -1644,7 +1313,6 @@ var initFieldset = function initFieldset() {
 
 /* harmony default export */ var modules_changeFieldset = (initFieldset);
 ;// CONCATENATED MODULE: ./src/js/modules/controlField.js
-
 var controlField = function controlField(btn, list, offList) {
   btn.addEventListener('click', function () {
     list.classList.toggle('fields__list_active');
@@ -1655,16 +1323,6 @@ var controlField = function controlField(btn, list, offList) {
 
     if (target.classList.contains('fields__button')) {
       list.classList.remove('fields__list_active');
-
-      if (target.dataset.sort) {
-        data.sortBook(target.dataset.sort);
-        renderList();
-      }
-
-      if (target.dataset.filter) {
-        var filteredData = data.filterBook(target.dataset.filter);
-        renderList(filteredData);
-      }
     }
   });
 };

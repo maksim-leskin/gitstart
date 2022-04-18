@@ -8,8 +8,7 @@ const add = document.querySelector('.add');
 const addBtns = document.querySelectorAll('.header__btn-add, .library__add-btn');
 const backBtn = document.querySelector('.book__btn_back');
 
-
-export const router = new Navigo('/', {
+export const router = new Navigo(location.pathname, {
   hash: true,
 });
 
@@ -22,20 +21,20 @@ const closeAllPage = () => {
 export const initRouter = () => {
 
   router.on({
-    '/': () => {
+    [location.pathname]: () => {
       closeAllPage();
       library.classList.remove('hidden');
       document.body.classList.remove('body_gradient')
       renderListBooks();
 
     },
-    'book': ({params: {id}}) => {
+    [location.pathname + 'book']: ({params: {id}}) => {
       closeAllPage();
       book.classList.remove('hidden');
       document.body.classList.add('body_gradient');
       renderBook(id);
     },
-    'add' : () => {
+    [location.pathname + 'add'] : () => {
       closeAllPage();
       add.classList.remove('hidden');
       document.body.classList.add('body_gradient')
